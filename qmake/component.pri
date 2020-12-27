@@ -6,7 +6,7 @@ REVISION_STAMP = $$shell_path($$SYS_HOME/$$COMPONENT_NAME/.revision.stamp)
 revision.target = $$REVISION_STAMP
 revision.depends = FORCE
 win32 {
-REVISION_SCRIPT = $$SYS_HOME\sdk\build\component\revision.vbs
+REVISION_SCRIPT = $$SYS_HOME\build\component\revision.vbs
 revision.commands = cscript $$REVISION_SCRIPT $$COMPONENT_NAME
 }
 else:unix {
@@ -22,7 +22,7 @@ COMPONENT_H=$$shell_path("$$SYS_HOME/$$COMPONENT_NAME/component.h")
 component_h.target = $$COMPONENT_H
 component_h.depends = $$shell_path($$SYS_HOME/$$COMPONENT_NAME/component.ini) $$REVISION_STAMP
 win32 {
-    component_h.commands = cscript $$SYS_HOME\sdk\build\component\generate.vbs $$COMPONENT_NAME $${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION}
+    component_h.commands = cscript $$SYS_HOME\build\component\generate.vbs $$COMPONENT_NAME $${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION}
 }
 else:unix {
     component_h.commands = chmod +x $$SYS_HOME/build/component/generate.sh; $$SYS_HOME/build/component/generate.sh $$COMPONENT_NAME $${QT_MAJOR_VERSION}.$${QT_MINOR_VERSION}

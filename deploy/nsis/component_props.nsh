@@ -6,7 +6,7 @@
 
 !macro SetupComponentProps _ComponentID
 
-	!define ConvertScriptPath "${RootDir}\sdk\build\component\component_nsh.vbs"
+	!define ConvertScriptPath "${RootDir}\build\component\component_nsh.vbs"
 	!define ComponentNsh "${RootDir}\${_ComponentID}\component.nsh"
 	!system 'cscript ${ConvertScriptPath} ${_ComponentID}'
 	!include /CHARSET=UTF8 ${ComponentNsh}
