@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		9132C07C21C95D1100754EEE /* component.pkg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = component.pkg.plist; path = ../../../qtre/deploy/component.pkg.plist; sourceTree = "<group>"; };
+		9132C07D21C95D1100754EEE /* macos-package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-package.sh"; path = "../../../qtre/deploy/macos-package.sh"; sourceTree = "<group>"; };
+		9132C08021DBB5C600754EEE /* macos-package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-package.sh"; path = "../../../sdk/deploy/macos-package.sh"; sourceTree = "<group>"; };
+		9132C08621DBF30000754EEE /* macos-package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-package.sh"; path = "../../../qdk/deploy/macos-package.sh"; sourceTree = "<group>"; };
+		E112BA0321942D6800D1F22D /* macos-distro.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-distro.sh"; path = "../../../kirkoszkop/deploy/macos-distro.sh"; sourceTree = "<group>"; };
+		E112BA0421942DF400D1F22D /* macos-distro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "macos-distro.xml"; path = "../../../kirkoszkop/deploy/macos-distro.xml"; sourceTree = "<group>"; };
+		E112BA062194338C00D1F22D /* macos-package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-package.sh"; path = "../../../platform/deploy/macos-package.sh"; sourceTree = "<group>"; };
+		E112BA072194339A00D1F22D /* macos-package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "macos-package.sh"; path = "../../../kirkoszkop/deploy/macos-package.sh"; sourceTree = "<group>"; };
+		E181C08D21848E2A003B7B5E /* component.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = component.sh; sourceTree = "<group>"; };
+		E181C08E21848E2A003B7B5E /* config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = config.sh; sourceTree = "<group>"; };
+		E181C08F21848E2A003B7B5E /* echo.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = echo.sh; sourceTree = "<group>"; };
+		E181C09021848E2A003B7B5E /* empty.lproj */ = {isa = PBXFileReference; lastKnownFileType = text; path = empty.lproj; sourceTree = "<group>"; };
+		E181C09121848E2A003B7B5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E181C09221848E34003B7B5E /* PkgInfo_APPL */ = {isa = PBXFileReference; lastKnownFileType = text; path = PkgInfo_APPL; sourceTree = "<group>"; };
+		E181C09821848EDD003B7B5E /* component.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = component.ini; path = ../../../platform/component.ini; sourceTree = "<group>"; };
+		E181C09921848EDD003B7B5E /* component.pkg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = component.pkg.plist; path = ../../../platform/component.pkg.plist; sourceTree = "<group>"; };
+		E181C0A2218490C7003B7B5E /* component.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = component.ini; path = ../../../kirkoszkop/component.ini; sourceTree = "<group>"; };
+		E181C0A3218490C7003B7B5E /* component.pkg.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = component.pkg.plist; path = ../../../kirkoszkop/component.pkg.plist; sourceTree = "<group>"; };
+		E181C0A4218490DD003B7B5E /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = ../../../kirkoszkop/deploy/app.icns; sourceTree = "<group>"; };
+		E181C0AD218596CF003B7B5E /* qt.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = qt.sh; sourceTree = "<group>"; };
+		E181C0AE2185C1EF003B7B5E /* package.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = package.sh; sourceTree = "<group>"; };
+		E1C2193B21C8C52C00CFCDB5 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1C2193D21C8C66400CFCDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		9132C07E21DBB54F00754EEE /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				9132C08021DBB5C600754EEE /* macos-package.sh */,
+			);
+			name = sdk;
+			sourceTree = "<group>";
+		};
+		9132C08521DBF2DF00754EEE /* qdk */ = {
+			isa = PBXGroup;
+			children = (
+				9132C08621DBF30000754EEE /* macos-package.sh */,
+			);
+			name = qdk;
+			sourceTree = "<group>";
+		};
+		E181C07A21848DA9003B7B5E = {
+			isa = PBXGroup;
+			children = (
+				9132C08521DBF2DF00754EEE /* qdk */,
+				9132C07E21DBB54F00754EEE /* sdk */,
+				E181C0A12184908C003B7B5E /* deploy */,
+				E181C0A621856B6B003B7B5E /* qtre */,
+				E181C09721848EA6003B7B5E /* platform */,
+				E181C0A021849085003B7B5E /* kirkoszkop */,
+			);
+			sourceTree = "<group>";
+		};
+		E181C09721848EA6003B7B5E /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				E112BA062194338C00D1F22D /* macos-package.sh */,
+				E181C09821848EDD003B7B5E /* component.ini */,
+				E181C09921848EDD003B7B5E /* component.pkg.plist */,
+			);
+			name = platform;
+			sourceTree = "<group>";
+		};
+		E181C0A021849085003B7B5E /* kirkoszkop */ = {
+			isa = PBXGroup;
+			children = (
+				E112BA072194339A00D1F22D /* macos-package.sh */,
+				E112BA0421942DF400D1F22D /* macos-distro.xml */,
+				E112BA0321942D6800D1F22D /* macos-distro.sh */,
+				E181C0A4218490DD003B7B5E /* app.icns */,
+				E181C0A2218490C7003B7B5E /* component.ini */,
+				E181C0A3218490C7003B7B5E /* component.pkg.plist */,
+				E1C2193C21C8C52C00CFCDB5 /* InfoPlist.strings */,
+			);
+			name = kirkoszkop;
+			sourceTree = "<group>";
+		};
+		E181C0A12184908C003B7B5E /* deploy */ = {
+			isa = PBXGroup;
+			children = (
+				E181C09221848E34003B7B5E /* PkgInfo_APPL */,
+				E181C0AE2185C1EF003B7B5E /* package.sh */,
+				E181C08D21848E2A003B7B5E /* component.sh */,
+				E181C08E21848E2A003B7B5E /* config.sh */,
+				E181C08F21848E2A003B7B5E /* echo.sh */,
+				E181C0AD218596CF003B7B5E /* qt.sh */,
+				E181C09021848E2A003B7B5E /* empty.lproj */,
+				E181C09121848E2A003B7B5E /* Info.plist */,
+			);
+			name = deploy;
+			sourceTree = "<group>";
+		};
+		E181C0A621856B6B003B7B5E /* qtre */ = {
+			isa = PBXGroup;
+			children = (
+				9132C07C21C95D1100754EEE /* component.pkg.plist */,
+				9132C07D21C95D1100754EEE /* macos-package.sh */,
+			);
+			name = qtre;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		9132C08121DBB65D00754EEE /* sdk */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 9132C08221DBB65D00754EEE /* Build configuration list for PBXLegacyTarget "sdk" */;
+			buildPhases = (
+			);
+			buildToolPath = "./platform/deploy/macos-package.sh";
+			buildWorkingDirectory = ../../../;
+			dependencies = (
+			);
+			name = sdk;
+			passBuildSettingsInEnvironment = 0;
+			productName = sdk;
+		};
+		E181C09321848E9D003B7B5E /* platform */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = E181C09421848E9D003B7B5E /* Build configuration list for PBXLegacyTarget "platform" */;
+			buildPhases = (
+			);
+			buildToolPath = "./platform/deploy/macos-package.sh";
+			buildWorkingDirectory = ../../../;
+			dependencies = (
+			);
+			name = platform;
+			passBuildSettingsInEnvironment = 0;
+			productName = platform;
+		};
+		E181C09C2184906C003B7B5E /* kirkoszkop */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = E181C09D2184906C003B7B5E /* Build configuration list for PBXLegacyTarget "kirkoszkop" */;
+			buildPhases = (
+			);
+			buildToolPath = "./kirkoszkop/deploy/macos-package.sh";
+			buildWorkingDirectory = ../../..;
+			dependencies = (
+			);
+			name = kirkoszkop;
+			passBuildSettingsInEnvironment = 0;
+			productName = kirkoszkop;
+		};
+		E181C0A821856C23003B7B5E /* qtre */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = E181C0A921856C23003B7B5E /* Build configuration list for PBXLegacyTarget "qtre" */;
+			buildPhases = (
+			);
+			buildToolPath = "./qtre/macos-package.sh";
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = qtre;
+			passBuildSettingsInEnvironment = 0;
+			productName = qtre;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		E181C07B21848DA9003B7B5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Symboid;
+				TargetAttributes = {
+					9132C08121DBB65D00754EEE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					E181C09321848E9D003B7B5E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					E181C09C2184906C003B7B5E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					E181C0A821856C23003B7B5E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E181C07E21848DA9003B7B5E /* Build configuration list for PBXProject "macos_deployment" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				hu,
+			);
+			mainGroup = E181C07A21848DA9003B7B5E;
+			productRefGroup = E181C07A21848DA9003B7B5E;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E181C09321848E9D003B7B5E /* platform */,
+				E181C09C2184906C003B7B5E /* kirkoszkop */,
+				E181C0A821856C23003B7B5E /* qtre */,
+				9132C08121DBB65D00754EEE /* sdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXVariantGroup section */
+		E1C2193C21C8C52C00CFCDB5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1C2193B21C8C52C00CFCDB5 /* hu */,
+				E1C2193D21C8C66400CFCDB5 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ../../../kirkoszkop/deploy;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9132C08321DBB65D00754EEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9132C08421DBB65D00754EEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E181C08821848DAA003B7B5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E181C08921848DAA003B7B5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E181C09521848E9D003B7B5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E181C09621848E9D003B7B5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E181C09E2184906C003B7B5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E181C09F2184906C003B7B5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E181C0AA21856C23003B7B5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E181C0AB21856C23003B7B5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9132C08221DBB65D00754EEE /* Build configuration list for PBXLegacyTarget "sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9132C08321DBB65D00754EEE /* Debug */,
+				9132C08421DBB65D00754EEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E181C07E21848DA9003B7B5E /* Build configuration list for PBXProject "macos_deployment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181C08821848DAA003B7B5E /* Debug */,
+				E181C08921848DAA003B7B5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E181C09421848E9D003B7B5E /* Build configuration list for PBXLegacyTarget "platform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181C09521848E9D003B7B5E /* Debug */,
+				E181C09621848E9D003B7B5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E181C09D2184906C003B7B5E /* Build configuration list for PBXLegacyTarget "kirkoszkop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181C09E2184906C003B7B5E /* Debug */,
+				E181C09F2184906C003B7B5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E181C0A921856C23003B7B5E /* Build configuration list for PBXLegacyTarget "qtre" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E181C0AA21856C23003B7B5E /* Debug */,
+				E181C0AB21856C23003B7B5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E181C07B21848DA9003B7B5E /* Project object */;
+}

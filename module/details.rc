@@ -1,0 +1,56 @@
+
+#include <Windows.h>
+#include "../component.h"
+#include "module.h"
+
+// Icon
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+1          ICON                    "../component.ico"
+// don't know how IDI_ICON1 works, but without it no application icon window title and sys tray
+IDI_ICON1  ICON    DISCARDABLE     "../component.ico"
+
+// Manifest
+// 1         RT_MANIFEST             "manifest.xml"
+
+// Version
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION COMPONENT_VER_MAJOR,COMPONENT_VER_MINOR,COMPONENT_VER_PATCH,COMPONENT_VER_SERIAL
+    PRODUCTVERSION COMPONENT_VER_MAJOR,COMPONENT_VER_MINOR,COMPONENT_VER_PATCH,COMPONENT_VER_SERIAL
+    FILEFLAGSMASK VS_FF_DEBUG
+#ifdef _DEBUG
+    FILEFLAGS VS_FF_DEBUG
+#else
+    FILEFLAGS 0x0L
+#endif
+    FILEOS VOS_NT_WINDOWS32
+    FILETYPE VFT_APP
+    FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040E04E4"
+        BEGIN
+            VALUE "CompanyName", "Symboid"
+            VALUE "FileDescription", MODULE_DESC
+            VALUE "FileVersion", COMPONENT_VER_STRING
+            VALUE "InternalName", MODULE_NAME
+            //VALUE "LegalCopyright", "Copyright (C) 2018 Symboid"
+            VALUE "OriginalFilename", MODULE_NAME
+            VALUE "ProductName", COMPONENT_TITLE
+            VALUE "ProductVersion", COMPONENT_VER_STRING
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x40E, 1252
+    END
+END
+
+
+// String Table
+//STRINGTABLE
+//BEGIN
+//    1 "string"
+//END
