@@ -8,19 +8,21 @@ if not len(sys.argv) == 2:
     os._exit(1)
 
 toolchain = sys.argv[1]
-
-#qtdir = r'' + os.environ['QTHOME'] + r''
-#if not os.path.exists(qtdir):
-#    print "QTDIR '" + qtdir + "' does not exist! Aborting..."
-#    os._exit(1)
-
+'''
+qtdir = r'' + os.environ['QTHOME'] + r'/' + qtver + r'/' + toolchain
+if not os.path.exists(qtdir):
+    print "QTDIR '" + qtdir + "' does not exist! Aborting..."
+    os._exit(1)
+'''
 is_msvc_toolchain = (toolchain[:4] == "msvc")
 
 # make path
 if is_msvc_toolchain:
     make_path = r'"' + os.environ['QTHOME'] + r'\\Tools\\QtCreator\\bin\\jom.exe"'
+    export_var = r'SET'
 else:
     make_path = 'make'
+    export_var = r'export'
 print("Path of make binary : "+make_path)
 
 # toolchain setup script:
@@ -34,6 +36,7 @@ else:
 # setting teamcity parameters:
 print("##teamcity[setParameter name='build.make_path' value='" + make_path + "']")
 print("##teamcity[setParameter name='build.call_setup' value='" + invoke_setup + "']")
+print("##teamcity[setParameter name='build.call_export_var' value='" + export_var + "']")
 
 '''
 
