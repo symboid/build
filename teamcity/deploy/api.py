@@ -16,7 +16,7 @@ toolchain = sys.argv[3]
 
 if toolchain[:4] == "msvc":
     cmd = "makensis"
-    script = component_path + "\deploy\api.nsi"
+    script = component_path + "\\deploy\\api.nsi"
     script_arguments = [ "/D_Config_BuildDir="+build_dir ]
     process_arguments = [cmd] + script_arguments + [script]
 
