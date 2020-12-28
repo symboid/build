@@ -24,7 +24,7 @@ else:
 print("Path of make binary : "+make_path)
 
 # setting teamcity parameters:
-print "##teamcity[setParameter name='build.make_path' value='" + make_cmd + "']"
+print("##teamcity[setParameter name='build.make_path' value='" + make_cmd + "']")
 
 '''
 
