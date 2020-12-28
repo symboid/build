@@ -25,11 +25,11 @@ print("Path of make binary : "+make_path)
 
 # toolchain setup script:
 if toolchain == "msvc2017":
-    invoke_setup = r'"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\VsDevCmd.bat"'
+    invoke_setup = r'CALL "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"'
 elif  toolchain == "msvc2017_64":
-    invoke_setup = r'"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\VsDevCmd.bat"'
+    invoke_setup = r'CALL "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"'
 else:
-    toolchain_script = ""
+    invoke_setup = "echo"
 
 # setting teamcity parameters:
 print("##teamcity[setParameter name='build.make_path' value='" + make_path + "']")
