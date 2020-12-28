@@ -60,10 +60,9 @@
 	!insertmacro FolderApi ${_ModuleName} *.h
 	
 	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
-	!define _BuildConfigDir "${BuildConfig}-${Toolchain}-${BuildArch}"
 	
 	Section "Deploy ${_ModuleName} Binary"
-		SetOutPath "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
+		SetOutPath "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
 		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.dll"
 		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
@@ -72,21 +71,19 @@
 	SectionEnd
 	
 	Section "Un.Deploy ${_ModuleName} Binary"
-		Delete "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.dll"
-		Delete "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.lib"
+		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.dll"
+		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
-		Delete "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
 !endif
-		RMDir  "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
-		RMDir  "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}\${_ModuleName}"
-		RMDir  "$INSTDIR\_build\${_BuildConfigDir}\${COMPONENT_NAME}"
-		RMDir  "$INSTDIR\_build\${_BuildConfigDir}"
-		RMDir  "$INSTDIR\_build"
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}"
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}"
+		RMDir  "$INSTDIR\${RelBuildDir}"
 		RMDir  "$INSTDIR"
 	SectionEnd
 	
 	!undef _ModuleBasename
-	!undef _BuildConfigDir
 	
 !macroend
 
