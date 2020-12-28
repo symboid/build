@@ -14,6 +14,8 @@ MODULE_TS_DEP += $$files($$_PRO_FILE_PWD_/*.qml, true)
 lingv_update.target = $$MODULE_TS
 lingv_compile.target = $$MODULE_QM
 
+message("QTDIR="$$(QTDIR))
+
 LUPDATE = $$absolute_path(bin/lupdate, $$(QTDIR))
 LRELEASE = $$absolute_path(bin/lrelease, $$(QTDIR))
 
