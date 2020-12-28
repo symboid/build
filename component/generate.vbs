@@ -31,7 +31,7 @@ if WScript.Arguments.Count >= 2 then
 end if
 
 ComponentName = WScript.Arguments(0)
-ComponentHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\..\" & ComponentName)
+ComponentHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\" & ComponentName)
 ComponentRevNum = RepoRevNum(ComponentHome)
 ComponentRevId  = RepoRevId(ComponentHome)
 
