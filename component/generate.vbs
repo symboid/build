@@ -40,7 +40,7 @@ WScript.Echo "Component Home    : " & ComponentHome
 WScript.Echo "Component Rev Num : " & ComponentRevNum
 WScript.Echo "Component Rev Id  : " & ComponentRevId
 
-SdkHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\..\sdk")
+SdkHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\sdk")
 SdkRevId  = RepoRevId(SdkHome)
 WScript.Echo "SDK Rev Id        : " & SdkRevId
 

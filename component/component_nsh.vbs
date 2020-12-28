@@ -12,7 +12,7 @@ if WScript.Arguments.Count < 1 then
 end if
 
 ComponentName = WScript.Arguments(0)
-ComponentHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\..\" & ComponentName)
+ComponentHome = Fs.GetAbsolutePathName(ScriptDir & "\..\..\" & ComponentName)
 
 ComponentHPath = ComponentHome & "\component.h"
 ComponentNshPath = ComponentHome & "\component.nsh"
