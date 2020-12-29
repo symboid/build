@@ -5,9 +5,9 @@ from subprocess import call
 import platform
 
 if not len(sys.argv) == 3:
-    print "Number of arguments must be 3!"
-    print "    arg #1: packages folder"
-    print "    arg #2: target folder"
+    print("Number of arguments must be 3!")
+    print("    arg #1: packages folder")
+    print("    arg #2: target folder")
     os._exit(1)
 
 platform_name = platform.system()
@@ -31,13 +31,13 @@ for package in packages:
 		command_line = [package_path, "/S", "/D="+install_dir]
 		file_ext = "exe"
 	else:
-		print "Platform '"+platform_name+"' not implemented!"
+		print("Platform '"+platform_name+"' not implemented!")
 		os._exit(1)
 	if package_path[-4:] == "."+file_ext:
-		print "Invoking:"
+		print("Invoking:")
 		for arg in command_line:
 			sys.stdout.write(" "+arg)
-		print " "
+		print(" ")
 		exit_code = call(command_line)
 		if not (exit_code == 0):
 			os._exit(exit_code)
