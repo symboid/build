@@ -14,7 +14,7 @@
 
 	!insertmacro SetupComponentProps ${_ComponentName}
 	
-	!define _ApiInstallerExe "${PackageDir}\${COMPONENT_NAME}-api-pkg.exe"
+	!define _ApiInstallerExe "${PackageDir}\${COMPONENT_NAME}-api-win_${BuildArch}.exe"
 	!define _ApiUninstallerExe "${COMPONENT_NAME}-api-uninst.exe"
 	
 	Name "${COMPONENT_TITLE}"

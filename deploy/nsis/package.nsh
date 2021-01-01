@@ -67,7 +67,7 @@ FunctionEnd
 	; name of installer
 	!searchreplace PackageRawName "${_PackageName}" " " "-"
 	!ifndef PackageInstallerExe
-	!define PackageInstallerExe "${PackageDir}\${PackageRawName}-pkg.exe"
+	!define PackageInstallerExe "${PackageDir}\${PackageRawName}-win_${BuildArch}.exe"
 	!endif
 	!define PackageUninstallerExe "uninst-${PackageRawName}.exe"
 
