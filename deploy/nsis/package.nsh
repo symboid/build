@@ -147,7 +147,7 @@ FunctionEnd
 
 !macro UninstallRemovesUserData _FolderId
 
-	!define _AppDataFolder "$LOCALAPPDATA\${_FolderId}"
+	!define _AppDataFolder "$LOCALAPPDATA\Symboid\${_FolderId}"
 	!define _DocumentsFolder "$DOCUMENTS\${_FolderId}"
 
 	UninstPage Custom Un.QuestionUserData Un.RemoveUserData
@@ -168,13 +168,14 @@ FunctionEnd
 		${NSD_CreateCheckBox} 30 60 100% 20 "$(TextRemoveAppData)"
 		Pop $RemoveAppDataCheckBox
 		${NSD_Check} $RemoveAppDataCheckBox
-		${NSD_CreateLabel} 45 80 100% 20 "$(TextFolder): ${_AppDataFolder}"
+		${NSD_CreateLabel} 45 80 100% 20 "$(TextFolder): ${_AppDataFolder}\log"
+		${NSD_CreateLabel} 45 100 100% 20 "$(TextFolder): ${_AppDataFolder}\cache"
 		
 		; check box for Documents folder
-		${NSD_CreateCheckBox} 30 110 100% 20 "$(TextRemoveDocuments)"
+		${NSD_CreateCheckBox} 30 130 100% 20 "$(TextRemoveDocuments)"
 		Pop $RemoveDocumentsCheckBox
 		${NSD_UnCheck} $RemoveDocumentsCheckBox
-		${NSD_CreateLabel} 45 130 100% 20 "$(TextFolder): ${_DocumentsFolder}"
+		${NSD_CreateLabel} 45 150 100% 20 "$(TextFolder): ${_DocumentsFolder}"
 		
 		nsDialogs::Show
 	FunctionEnd
@@ -195,7 +196,8 @@ FunctionEnd
 	
 	Section "Un.CleanupUserData"
 		${If} $RemoveAppData == "1"
-			RMDir /r "${_AppDataFolder}"
+			RMDir /r "${_AppDataFolder}\log"
+			RMDir /r "${_AppDataFolder}\cache"
 		${Endif}
 		${If} $RemoveDocuments == "1"
 			RMDir /r "${_DocumentsFolder}"
@@ -211,8 +213,8 @@ FunctionEnd
 
 	!define PurgingExistingInstance
 	
-	!insertmacro PackageBasics "${COMPONENT_NAME}" "$LOCALAPPDATA\${_RelFolder}"
-	!insertmacro PackageRegComponent "${COMPONENT_NAME}" "$LOCALAPPDATA\${_RelFolder}"
+	!insertmacro PackageBasics "${COMPONENT_NAME}" "$LOCALAPPDATA\Symboid\${_RelFolder}"
+	!insertmacro PackageRegComponent "${COMPONENT_NAME}" "$LOCALAPPDATA\Symboid\${_RelFolder}"
 	!insertmacro PackageCommonPages
 
 	!insertmacro MUI_UNPAGE_CONFIRM
