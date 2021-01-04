@@ -7,20 +7,31 @@
 !macro IncludeVcRedist
 
 !if `${BuildConfig}` == `release`
-	!define VcRedistFileName "vcredist_${Toolchain}_${BuildArch}"
-	!define VcRedistPath "${QtHome}\vcredist\${VcRedistFileName}.exe"
-	!define VcRedistParams "/install /quiet /norestart"
-	${EchoItem} "VC Redist installer  : ${VcRedistPath}"
+	!define CrtDir "${RootDir}\build\deploy\crt\${Toolchain}\${BuildArch}"
+	${EchoItem} "Copy CRT from        : ${CrtDir}"
 	
-	Section "Exec ${VcRedistFileName}"
-		SetOutPath "$TEMP\_${VcRedistFileName}"
-		File "${VcRedistPath}"
-		ExecWait "${VcRedistFileName} ${VcRedistParams}"
+	!if `${Toolchain}` == `msvc2017`
+	Section "Deploy CRT"
+		SetOutPath "$INSTDIR"
+		File "${CrtDir}\vcruntime140.dll"
+		File "${CrtDir}\msvcp140.dll"
+		File "${CrtDir}\msvcp140_1.dll"
+		File "${CrtDir}\msvcp140_2.dll"
+		File "${CrtDir}\concrt140.dll"
+		File "${CrtDir}\vccorlib140.dll"
 	SectionEnd
 	
-	Section "Delete ${VcRedistFileName}"
-		RMDir /r "$TEMP\_${VcRedistFileName}"
+	Section "Un.Deploy CRT"
+		Delete "$INSTDIR\vcruntime140.dll"
+		Delete "$INSTDIR\msvcp140.dll"
+		Delete "$INSTDIR\msvcp140_1.dll"
+		Delete "$INSTDIR\msvcp140_2.dll"
+		Delete "$INSTDIR\concrt140.dll"
+		Delete "$INSTDIR\vccorlib140.dll"
 	SectionEnd
+	!else
+		!error "Crt not configured for toolchain ${Toolchain}!"
+	!endif
 !endif
 
 !macroend
