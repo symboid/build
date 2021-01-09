@@ -35,7 +35,7 @@
 
 ; full path and parameters of Qt dependency generator tool 'windeployqt':
 !define QtDepGen "${QtDir}\bin\windeployqt.exe"
-!define QtDepGenParams "--${BuildConfig} --no-translations --no-compiler-runtime --verbose 0 --plugindir ${QtDepsDir}\plugins --dir ${QtDepsDir}\qml --libdir ${QtDepsDir}\bin"
+!define QtDepGenParams "--${BuildConfig} --no-compiler-runtime --verbose 0 --plugindir ${QtDepsDir}\plugins --dir ${QtDepsDir}\qml --libdir ${QtDepsDir}\bin"
 
 !macro ClearQtDeps
 
@@ -102,7 +102,10 @@
 	
 	Section "Qt ${QtVerMain} Deps"
 		SetOutPath "${QtInstallDir}"
-		File /nonfatal /r ${_ExcludeBinaries} "${QtDepsDir}\*.*"
+		File /nonfatal /r ${_ExcludeBinaries} /x "qt_*.qm" "${QtDepsDir}\*.*"
+		SetOutPath "${QtInstallDir}\translations"
+		File "${QtDepsDir}\qml\translations\qt_hu.qm"
+		File "${QtDepsDir}\qml\translations\qt_en.qm"
 	SectionEnd
 
 	!undef _ExcludeBinaries
