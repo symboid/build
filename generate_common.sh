@@ -17,12 +17,6 @@ function DumpClose
     DUMP_FILE=stdout
 }
 
-# selecting the HG vcs command:
-HG=$(which hg)
-if [ "$HG" == "" ]; then
-    HG=/usr/local/bin/hg
-fi
-
 function TransformInfoIni
 {
     InfoIniPath=$1".ini"
