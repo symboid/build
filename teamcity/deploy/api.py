@@ -25,7 +25,7 @@ if toolchain[:4] == "msvc":
         script_arguments.append("/D_Config_x86")
     process_arguments = [cmd] + script_arguments + [script]
 # Build host is other (Linux,MacOS): tar+gzip via api.sh
-else
+else:
     cmd = "/bin/bash"
     script = script_path + ".sh"
     script_arguments = [ build_dir, package_dir ]
