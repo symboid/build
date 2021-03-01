@@ -27,13 +27,16 @@ for package in packages:
 	if platform_name == "Darwin":
 		command_line = ["xar", "-xf", package_path, "-C", install_dir]
 		file_ext = "xar"
+	elif platform_name == "Linux":
+		command_line = ["tar", "-xf", package_path, "-C", install_dir]
+		file_ext = "tar.gz"
 	elif platform_name == "Windows":
 		command_line = [package_path, "/S", "/D="+install_dir]
 		file_ext = "exe"
 	else:
 		print("Platform '"+platform_name+"' not implemented!")
 		os._exit(1)
-	if package_path[-4:] == "."+file_ext:
+	if package_path[-(len(file_ext)+1):] == "."+file_ext:
 		print("Invoking:")
 		for arg in command_line:
 			sys.stdout.write(" "+arg)
