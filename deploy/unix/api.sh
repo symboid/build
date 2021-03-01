@@ -18,7 +18,7 @@ function ComponentApiEnd
 {
     cd $ARCHIVE_TMP_DIR
     tar --create --gzip --file=$ARCHIVE_PATH *
-    cd $dirname($ARCHIVE_PATH)
+    cd $(dirname $ARCHIVE_PATH)
     rm -rf $ARCHIVE_TMP_DIR
 }
 
