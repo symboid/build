@@ -18,6 +18,8 @@ function ComponentApiEnd
 {
     cd $ARCHIVE_TMP_DIR
     tar --create --gzip --file=$ARCHIVE_PATH *
+    cd $dirname($ARCHIVE_PATH)
+    rm -rf $ARCHIVE_TMP_DIR
 }
 
 function FileApi
@@ -49,5 +51,5 @@ function ModuleApi
 {
     local MODULE_NAME=$1
     FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so*'
 }
