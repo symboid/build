@@ -29,6 +29,7 @@ else:
     cmd = "/bin/bash"
     script = script_path + ".sh"
     script_arguments = [ build_dir, package_dir ]
+    process_arguments = [cmd] + [script] + script_arguments
 
 print("Script interpreter : " + cmd)
 print("Script             : " + script)
