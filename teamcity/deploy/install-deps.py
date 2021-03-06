@@ -24,7 +24,7 @@ if not os.path.exists(install_dir):
 
 for package in packages:
 	package_path = os.path.normpath(os.path.join(packages_dir, package))
-    if platform_name == "Linux" or platform_name == "Darwin":
+	if platform_name == "Linux" or platform_name == "Darwin":
 		command_line = ["tar", "-xf", package_path, "-C", install_dir]
 		file_ext = "tar.gz"
 	elif platform_name == "Windows":
