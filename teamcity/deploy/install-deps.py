@@ -5,7 +5,7 @@ from subprocess import call
 import platform
 
 if not len(sys.argv) == 3:
-    print("Number of arguments must be 3!")
+    print("Number of arguments must be 2!")
     print("    arg #1: packages folder")
     print("    arg #2: target folder")
     os._exit(1)
@@ -24,10 +24,7 @@ if not os.path.exists(install_dir):
 
 for package in packages:
 	package_path = os.path.normpath(os.path.join(packages_dir, package))
-	if platform_name == "Darwin":
-		command_line = ["xar", "-xf", package_path, "-C", install_dir]
-		file_ext = "xar"
-	elif platform_name == "Linux":
+    if platform_name == "Linux" or platform_name == "Darwin":
 		command_line = ["tar", "-xf", package_path, "-C", install_dir]
 		file_ext = "tar.gz"
 	elif platform_name == "Windows":
