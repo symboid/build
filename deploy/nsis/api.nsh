@@ -102,75 +102,33 @@
 	
 !macroend
 
-/*
-!macro DeployApi _BinaryName _IncludePath
 
-	${EchoItem} "Module API           : ${_BinaryName}"
-
-	!define _RuntimeBinary "${InstallDir}\bin\${_BinaryName}.dll"
-	!define _StaticBinary "${InstallDir}\lib\${_BinaryName}.lib"
+!macro ExeFolder _ModuleName
 	
-!if /FileExists "${_RuntimeBinary}"
-	!define _IsRuntimeModule 1
-!else if /FileExists "${_StaticBinary}"
-	!define _IsRuntimeModule 0
-!else
-	!error "Module '${_BinaryName}' not found!"
+	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
+	
+	Section "Deploy ${_ModuleName} Binary"
+		SetOutPath "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.exe"
+!if `${BuildConfig}` == `debug`
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
 !endif
-	
-	Section "${_BinaryName}-API"
-		; module binary
-!if ${_IsRuntimeModule}
-		SetOutPath "$INSTDIR\bin"
-		File "${_RuntimeBinary}"
-		
-		; module library archive
-		SetOutPath "$INSTDIR\lib"
-		File "${InstallDir}\bin\${_BinaryName}.lib"
-!else
-		SetOutPath "$INSTDIR\lib"
-		File "${InstallDir}\lib\${_BinaryName}.lib"
-!endif		
-		; module interface
-		SetOutPath "$INSTDIR\include\${_IncludePath}"
-		File /r "${InstallDir}\include\${_IncludePath}\*.h"
 	SectionEnd
 	
-	Section "Un.${_BinaryName}-API"
-		; module binary
-!if ${_IsRuntimeModule}
-		Delete "$INSTDIR\bin\${_BinaryName}.dll"
-		RMDir "$INSTDIR\bin"
-!endif		
-		; module library archive
-		Delete "$INSTDIR\lib\${_BinaryName}.lib"
-		RMDir "$INSTDIR\lib"
-		
-		; module interface
-		RMDir /r "$INSTDIR\include\${_IncludePath}"
-		RMDir "$INSTDIR\include"
-		
-		RMDir "$INSTDIR"
+	Section "Un.Deploy ${_ModuleName} Binary"
+		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.exe"
+!if `${BuildConfig}` == `debug`
+		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+!endif
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}"
+		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}"
+		RMDir  "$INSTDIR\${RelBuildDir}"
+		RMDir  "$INSTDIR"
 	SectionEnd
 	
-	!undef _RuntimeBinary
-	!undef _StaticBinary
-	!undef _IsRuntimeModule
+	!undef _ModuleBasename
 	
 !macroend
-
-!macro DeploySdkApi _SdkModuleName
-	!insertmacro DeployApi "${_SdkModuleName}" "${_SdkModuleName}"
-!macroend
-
-!macro DeployModuleApi _ModuleName
-	!insertmacro DeployApi "${COMPONENT_NAME}${_ModuleName}" "${COMPONENT_NAME}\${_ModuleName}"
-	Section "Un.SDK-interface"
-		RMDir "$INSTDIR\include\sdk"
-		RMDir "$INSTDIR\include"
-		RMDir "$INSTDIR"
-	SectionEnd
-!macroend
-*/
 
 !endif ; __SYMBOID_SDK_BUILD_DEPLOY_API_NSH__
