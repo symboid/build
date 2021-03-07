@@ -40,15 +40,15 @@
 	
 !macroend
 
-!macro FileApi _RelFilePath
+!macro FileApi _RelFolderPath _FileName
 
-	Section "Deploy ${_RelFilePath} API"
-		SetOutPath "$INSTDIR\${COMPONENT_NAME}"
-		File  "${RootDir}\${COMPONENT_NAME}\${_RelFilePath}"
+	Section "Deploy ${_RelFolderPath}\${_FileName} API"
+		SetOutPath "$INSTDIR\${COMPONENT_NAME}\${_RelFolderPath}"
+		File  "${RootDir}\${COMPONENT_NAME}\${_RelFolderPath}\${_FileName}"
 	SectionEnd
 	
-	Section "Un.Deploy ${_RelFilePath} API"
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_RelFilePath}"
+	Section "Un.Deploy ${_RelFolderPath}\${_FileName} API"
+		RMDir /r "$INSTDIR\${COMPONENT_NAME}\${_RelFolderPath}"
 		RMDir  "$INSTDIR\${COMPONENT_NAME}"
 		RMDir  "$INSTDIR"
 	SectionEnd
