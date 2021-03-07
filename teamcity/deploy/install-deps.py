@@ -41,3 +41,5 @@ for package in packages:
 		exit_code = call(command_line)
 		if not (exit_code == 0):
 			os._exit(exit_code)
+	else:
+		print("Not executed: '"+package_path+"'")
