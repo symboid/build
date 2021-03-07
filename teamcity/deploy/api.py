@@ -20,7 +20,7 @@ toolchain = sys.argv[4]
 if toolchain[:4] == "msvc":
     cmd = "makensis"
     script = script_path + ".nsi"
-    script_arguments = [ "/D_Config_BuildDir="+build_dir, "/D_Config_Toolchain="+toolchain[:8] ]
+    script_arguments = [ "/D_Config_BuildDir="+build_dir, "/D_Config_PackageDir="+package_dir, "/D_Config_Toolchain="+toolchain[:8] ]
     if not toolchain[-3:] == "_64":
         script_arguments.append("/D_Config_x86")
     process_arguments = [cmd] + script_arguments + [script]

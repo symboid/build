@@ -43,7 +43,7 @@
 
 ; directory of packages:
 !ifdef _Config_PackageDir
-	!define PackageDir "${_Config_PackageDir}"
+	!define PackageDir "${RootDir}\${_Config_PackageDir}"
 !else
 	!define PackageDir "${RootDir}\_packages"
 !endif
