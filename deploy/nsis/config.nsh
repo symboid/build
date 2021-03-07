@@ -42,7 +42,11 @@
 !define BuildDir "${RootDir}\${RelBuildDir}"
 
 ; directory of packages:
-!define PackageDir "${RootDir}\_packages"
+!ifdef _Config_PackageDir
+	!define PackageDir "${_Config_PackageDir}"
+!else
+	!define PackageDir "${RootDir}\_packages"
+!endif
 !system "IF NOT EXIST ${PackageDir} MKDIR ${PackageDir}"
 
 ; root directory of Qt
