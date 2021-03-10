@@ -44,6 +44,7 @@ function FolderApi
         mkdir -p $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
 #        rsync -a --include '*/' --include '$FILE_FILTER' --exclude '*' $ROOT_DIR/$REL_FOLDER_PATH/ $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/
         cp -r $ROOT_DIR/$REL_FOLDER_PATH/$FILE_FILTER $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
+        rm -rf $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/Makefile.*
     else
         echo "Folder '$ROOT_DIR/$REL_FOLDER_PATH' cannot be found!"
     fi
