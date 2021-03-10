@@ -12,7 +12,7 @@ function ComponentApiBegin
     echo "Creating $ARCHIVE_PATH..."
     rm -rf $ARCHIVE_TMP_DIR
     mkdir -p $ARCHIVE_TMP_DIR
-    FileApi ${COMPONENT_NAME}.pro
+    FileApi ${COMPONENT_NAME}/${COMPONENT_NAME}.pro
 }
 
 function ComponentApiEnd
@@ -53,7 +53,7 @@ function ModuleApi
 {
     local MODULE_NAME=$1
     FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*$COMPONENT_NAME-$MODULE_NAME*'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*${COMPONENT_NAME}-${MODULE_NAME}*'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
