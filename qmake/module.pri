@@ -126,7 +126,7 @@ defineReplace(moduleDirPath) {
     component_name = $$1
     module_name = $$2
 
-    CONFIG(ComponentApi) {
+    CONFIG(component_api) {
         android {
             module_dir_path = $$INSTALL_ROOT/libs/$$ANDROID_TARGET_ARCH
         }
