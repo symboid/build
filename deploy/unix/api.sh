@@ -12,7 +12,8 @@ function ComponentApiBegin
     echo "Creating $ARCHIVE_PATH..."
     rm -rf $ARCHIVE_TMP_DIR
     mkdir -p $ARCHIVE_TMP_DIR
-    FileApi ${COMPONENT_NAME}/${COMPONENT_NAME}.pro
+    
+    FolderApi $REL_BUILD_DIR/build-install *
 }
 
 function ComponentApiEnd
@@ -44,7 +45,6 @@ function FolderApi
         mkdir -p $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
 #        rsync -a --include '*/' --include '$FILE_FILTER' --exclude '*' $ROOT_DIR/$REL_FOLDER_PATH/ $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/
         cp -r $ROOT_DIR/$REL_FOLDER_PATH/$FILE_FILTER $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
-        rm -rf $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/Makefile.*
     else
         echo "Folder '$ROOT_DIR/$REL_FOLDER_PATH' cannot be found!"
     fi
@@ -54,11 +54,8 @@ function ModuleApi
 {
     local MODULE_NAME=$1
     FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
-    FolderApi $COMPONENT_NAME/$MODULE_NAME '*.pro'
-    MODULE_FILES=*$COMPONENT_NAME-$MODULE_NAME*
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME $MODULE_FILES
-#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
-#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
-#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
-#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.a'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
+    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.a'
 }
