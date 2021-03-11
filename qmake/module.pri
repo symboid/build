@@ -17,10 +17,13 @@ ios {
     INSTALLS += target
 }
 
+MODULE_PATH=$$relative_path($$_PRO_FILE_PWD_,$$SYS_HOME)
+api_headers.files = $$shell_path($$absolute_path($$_PRO_FILE_PWD_)/*.h)
+api_headers.path = /include/$$MODULE_PATH
+INSTALLS += api_headers
+
 CONFIG(component_api) {
-    api_headers.files = $$shell_path($$absolute_path($$_PRO_FILE_PWD_)/*.h)
-    api_headers.apth = /include
-    INSTALLS += api_headers
+    INCLUDEPATH += $$INSTALL_ROOT/include
 }
 
 MODULE_H     = $$absolute_path($$_PRO_FILE_PWD_/module.h)

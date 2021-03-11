@@ -51,8 +51,8 @@ function FolderApi
 
 function ModuleApi
 {
-    local MODULE_NAME=$1
-    FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
+#    local MODULE_NAME=$1
+#    FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
 #    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
