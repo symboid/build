@@ -23,7 +23,7 @@ api_headers.path = /include/$$MODULE_PATH
 INSTALLS += api_headers
 
 CONFIG(component_api) {
-    INCLUDEPATH += $$INSTALL_ROOT/include
+    INCLUDEPATH += $$DEP_ROOT/include
 }
 
 MODULE_H     = $$absolute_path($$_PRO_FILE_PWD_/module.h)
@@ -145,8 +145,8 @@ defineReplace(moduleDep) {
     module_name = $$2
 
     CONFIG(component_api) {
-        android: module_dep += -L$$INSTALL_ROOT/libs/$$ANDROID_TARGET_ARCH
-        else:    module_dep += -L$$INSTALL_ROOT/libs
+        android: module_dep += -L$$DEP_ROOT/libs/$$ANDROID_TARGET_ARCH
+        else:    module_dep += -L$$DEP_ROOT/libs
     }
 
     module_dep += -L$$moduleDirPath($$component_name,$$module_name)
