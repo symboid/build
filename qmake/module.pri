@@ -16,6 +16,10 @@ ios {
     target.path = /libs
     INSTALLS += target
 }
+msvc {
+    target.path = /libs
+    INSTALLS += target
+}
 
 MODULE_PATH=$$relative_path($$_PRO_FILE_PWD_,$$SYS_HOME)
 api_headers.files = $$shell_path($$absolute_path($$_PRO_FILE_PWD_)/*.h)

@@ -77,24 +77,22 @@
 	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
 	
 	Section "Deploy ${_ModuleName} Binary"
-		SetOutPath "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.dll"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.lib"
+		SetOutPath "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.dll"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
 !endif
 	SectionEnd
 	
 	Section "Un.Deploy ${_ModuleName} Binary"
-		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.dll"
-		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.lib"
+		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.dll"
+		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
-		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
 !endif
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}"
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}"
-		RMDir  "$INSTDIR\${RelBuildDir}"
+		RMDir  "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
+		RMDir  "$INSTDIR\${COMPONENT_NAME}"
 		RMDir  "$INSTDIR"
 	SectionEnd
 	
@@ -108,22 +106,20 @@
 	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
 	
 	Section "Deploy ${_ModuleName} Binary"
-		SetOutPath "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.exe"
+		SetOutPath "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.exe"
 !if `${BuildConfig}` == `debug`
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
 !endif
 	SectionEnd
 	
 	Section "Un.Deploy ${_ModuleName} Binary"
-		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.exe"
+		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.exe"
 !if `${BuildConfig}` == `debug`
-		Delete "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}\${_ModuleBasename}.pdb"
+		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
 !endif
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}\${BuildConfig}"
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}\${_ModuleName}"
-		RMDir  "$INSTDIR\${RelBuildDir}\${COMPONENT_NAME}"
-		RMDir  "$INSTDIR\${RelBuildDir}"
+		RMDir  "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
+		RMDir  "$INSTDIR\${COMPONENT_NAME}"
 		RMDir  "$INSTDIR"
 	SectionEnd
 	
