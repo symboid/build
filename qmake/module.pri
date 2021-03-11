@@ -8,8 +8,8 @@ TEMPLATE = lib
 DEFINES += BUILD_$$upper($$replace(TARGET,-,_))
 
 # install phase rules
-target.path = .
-INSTALLS += target
+#target.path = .
+#INSTALLS += target
 
 MODULE_H     = $$absolute_path($$_PRO_FILE_PWD_/module.h)
 

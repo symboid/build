@@ -102,11 +102,3 @@ else{
 CONTEXT=$$CTX_OS-$$CTX_RUN
 
 INCLUDEPATH += $$SYS_HOME
-
-android {
-    INSTALL_ROOT = $$BUILD_HOME/$$COMPONENT_NAME/build-android
-}
-else {
-    INSTALL_ROOT = $$BUILD_HOME/$$COMPONENT_NAME/build-install
-}
-message($$INSTALL_ROOT)
