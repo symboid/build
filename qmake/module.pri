@@ -8,12 +8,8 @@ TEMPLATE = lib
 DEFINES += BUILD_$$upper($$replace(TARGET,-,_))
 
 # install phase rules
-target.path = "$$INSTALL_PATH/bin"
+target.path = .
 INSTALLS += target
-
-CONFIG(UseComponentApi): {
-LIBS += -L$$INSTALL_PATH/lib
-}
 
 MODULE_H     = $$absolute_path($$_PRO_FILE_PWD_/module.h)
 

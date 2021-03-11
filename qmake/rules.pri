@@ -4,8 +4,6 @@ BUILD_HOME = $$shell_path($$absolute_path($$BUILD_ROOT, $$OUT_PWD))
 
 SDK_HOME = $$SYS_HOME/sdk
 
-INSTALL_PATH = $$BUILD_HOME/_install
-
 defineReplace(sdkBuildDep) {
     mod_name = $$1
     mod_dep = $$SDK_HOME/$${mod_name}/mod
@@ -49,9 +47,6 @@ defineReplace(componentLibDep) {
     else: win32: !win32-g++: lib_base = $${lib_name}.lib
     else: unix: lib_base = lib$${lib_name}.a
 
-    CONFIG(UseComponentApi): {
-    lib_dep = $$INSTALL_PATH/lib/$${lib_base}
-    }
     return($$lib_dep)
 }
 
@@ -78,11 +73,6 @@ clang {
 
 # first SDK home need to be added in order to avoid using _install/include inside module/component
 #INCLUDEPATH += $${SDK_HOME}
-
-# lib files for modules of dependent component
-CONFIG(UseComponentApi): {
-    LIBS += -L$$INSTALL_PATH/bin
-}
 
 # setting up context
 macx{
@@ -112,3 +102,11 @@ else{
 CONTEXT=$$CTX_OS-$$CTX_RUN
 
 INCLUDEPATH += $$SYS_HOME
+
+android {
+    INSTALL_ROOT = $$BUILD_HOME/$$COMPONENT_NAME/build-android
+}
+else {
+    INSTALL_ROOT = $$BUILD_HOME/$$COMPONENT_NAME/build-install
+}
+message($$INSTALL_ROOT)
