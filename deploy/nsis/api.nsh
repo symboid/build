@@ -77,22 +77,21 @@
 	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
 	
 	Section "Deploy ${_ModuleName} Binary"
-		SetOutPath "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.dll"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.lib"
+		SetOutPath "$INSTDIR\libs"
+		File "${BuildDir}\libs\${_ModuleBasename}.dll"
+		File "${BuildDir}\libs\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
+		File "${BuildDir}\libs\${_ModuleBasename}.pdb"
 !endif
 	SectionEnd
 	
 	Section "Un.Deploy ${_ModuleName} Binary"
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.dll"
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.lib"
+		Delete "$INSTDIR\libs\${_ModuleBasename}.dll"
+		Delete "$INSTDIR\libs\${_ModuleBasename}.lib"
 !if `${BuildConfig}` == `debug`
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
+		Delete "$INSTDIR\libs\${_ModuleBasename}.pdb"
 !endif
-		RMDir  "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
-		RMDir  "$INSTDIR\${COMPONENT_NAME}"
+		RMDir  "$INSTDIR\libs"
 		RMDir  "$INSTDIR"
 	SectionEnd
 	
@@ -106,20 +105,19 @@
 	!define _ModuleBasename "${COMPONENT_NAME}-${_ModuleName}"
 	
 	Section "Deploy ${_ModuleName} Binary"
-		SetOutPath "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.exe"
+		SetOutPath "$INSTDIR\libs"
+		File "${BuildDir}\libs\${_ModuleBasename}.exe"
 !if `${BuildConfig}` == `debug`
-		File "${BuildDir}\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
+		File "${BuildDir}\libs\${_ModuleBasename}.pdb"
 !endif
 	SectionEnd
 	
 	Section "Un.Deploy ${_ModuleName} Binary"
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.exe"
+		Delete "$INSTDIR\libs\${_ModuleBasename}.exe"
 !if `${BuildConfig}` == `debug`
-		Delete "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}\${_ModuleBasename}.pdb"
+		Delete "$INSTDIR\libs\${_ModuleBasename}.pdb"
 !endif
-		RMDir  "$INSTDIR\${COMPONENT_NAME}\${_ModuleName}"
-		RMDir  "$INSTDIR\${COMPONENT_NAME}"
+		RMDir  "$INSTDIR\libs"
 		RMDir  "$INSTDIR"
 	SectionEnd
 	
