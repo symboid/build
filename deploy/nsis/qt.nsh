@@ -8,15 +8,11 @@
 !ifdef _Config_QtVer
 	!define QtVer "${_Config_QtVer}"
 !else
-	!define QtVer 5.14.2
+	!define QtVer 5.15.2
 !endif
 
 ; directory of currently installed and used Qt Toolchain:
-!if `${BuildArch}` == `x86`
-	!define QtDir "${QtHome}\${QtVer}\${Toolchain}"
-!else
-	!define QtDir "${QtHome}\${QtVer}\${Toolchain}_64"
-!endif
+!define QtDir "${QtHome}\${QtVer}\${Toolchain}"
 
 ; version variants of Qt
 !searchparse ">${QtVer}." ">" QtVerMajor "." QtVerMinor "."

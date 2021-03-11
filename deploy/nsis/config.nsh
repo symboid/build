@@ -35,15 +35,14 @@
 
 ; directory of builds:
 !ifdef _Config_BuildDir
-	!define RelBuildDir "${_Config_BuildDir}"
+	!define BuildDir "${_Config_BuildDir}"
 !else
-	!define RelBuildDir "_build\${BuildConfig}-${Toolchain}-${BuildArch}"
+	!define BuildDir "${RootDir}\_build\${BuildConfig}-${Toolchain}"
 !endif
-!define BuildDir "${RootDir}\${RelBuildDir}"
 
 ; directory of packages:
 !ifdef _Config_PackageDir
-	!define PackageDir "${RootDir}\${_Config_PackageDir}"
+	!define PackageDir "${_Config_PackageDir}"
 !else
 	!define PackageDir "${RootDir}\_packages"
 !endif

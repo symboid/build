@@ -5,23 +5,25 @@
 !include X64.nsh
 
 ;-------------------------------------------------------------------------------
-; Type of binary architecture excpected:
-;
-!ifdef _Config_AllArch
-	!define BuildArch All
-!else ifdef _Config_x86
-	!define BuildArch x86
-!else
-	!define BuildArch x64
-!endif
-
-;-------------------------------------------------------------------------------
 ; Toolchain selected:
 ;
 !ifdef _Config_Toolchain
 	!define Toolchain "${_Config_Toolchain}"
 !else
-	!define Toolchain "msvc2017"
+	!define Toolchain "msvc2019_64"
+!endif
+
+;-------------------------------------------------------------------------------
+; Type of binary architecture excpected:
+;
+!searchparse ">${Toolchain}_32_" ">" __t "_" __arch "_"
+#!ifdef _Config_AllArch
+#	!define BuildArch All
+#!else ifdef _Config_x86
+!if `${__arch}` = `32`
+	!define BuildArch x86
+!else
+	!define BuildArch x64
 !endif
 
 ;-------------------------------------------------------------------------------
