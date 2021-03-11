@@ -44,7 +44,7 @@ function FolderApi
         echo "Adding files $FILE_FILTER folder in $REL_FOLDER_PATH"
         mkdir -p $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
 #        rsync -a --include '*/' --include '$FILE_FILTER' --exclude '*' $ROOT_DIR/$REL_FOLDER_PATH/ $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/
-        cp -r $ROOT_DIR/$REL_FOLDER_PATH/$FILE_FILTER $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
+        cp -rR $ROOT_DIR/$REL_FOLDER_PATH/$FILE_FILTER $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
     else
         echo "Folder '$ROOT_DIR/$REL_FOLDER_PATH' cannot be found!"
     fi
