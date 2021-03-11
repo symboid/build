@@ -9,11 +9,11 @@ DEFINES += BUILD_$$upper($$replace(TARGET,-,_))
 
 # install phase rules
 macos {
-    target.path = /
+    target.path = /libs
     INSTALLS += target
 }
 ios {
-    target.path = /
+    target.path = /libs
     INSTALLS += target
 }
 
@@ -126,9 +126,18 @@ defineReplace(moduleDirPath) {
     component_name = $$1
     module_name = $$2
 
-    module_dir_name = $$libPath($$BUILD_HOME/$$component_name/$$module_name)
-
-    return ($$module_dir_name)
+    CONFIG(ComponentApi) {
+        android {
+            module_dir_path = $$INSTALL_ROOT/libs/$$ANDROID_TARGET_ARCH
+        }
+        else {
+            module_dir_path = $$INSTALL_ROOT/libs
+        }
+    }
+    else {
+        module_dir_path = $$libPath($$BUILD_HOME/$$component_name/$$module_name)
+    }
+    return ($$module_dir_path)
 }
 
 defineReplace(moduleDep) {

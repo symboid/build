@@ -4,12 +4,6 @@ BUILD_HOME = $$shell_path($$absolute_path($$BUILD_ROOT, $$OUT_PWD))
 
 SDK_HOME = $$SYS_HOME/sdk
 
-defineReplace(sdkBuildDep) {
-    mod_name = $$1
-    mod_dep = $$SDK_HOME/$${mod_name}/mod
-    return ($$mod_dep )
-}
-
 defineReplace(buildPath) {
     out_dir = $$1
     build_path =

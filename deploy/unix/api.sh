@@ -43,7 +43,6 @@ function FolderApi
     if [ -d $ROOT_DIR/$REL_FOLDER_PATH ]; then
         echo "Adding files $FILE_FILTER folder in $REL_FOLDER_PATH"
         mkdir -p $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
-#        rsync -a --include '*/' --include '$FILE_FILTER' --exclude '*' $ROOT_DIR/$REL_FOLDER_PATH/ $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH/
         cp -R $ROOT_DIR/$REL_FOLDER_PATH/$FILE_FILTER $ARCHIVE_TMP_DIR/$REL_FOLDER_PATH
     else
         echo "Folder '$ROOT_DIR/$REL_FOLDER_PATH' cannot be found!"
@@ -54,8 +53,8 @@ function ModuleApi
 {
     local MODULE_NAME=$1
     FolderApi $COMPONENT_NAME/$MODULE_NAME '*.h'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
-    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.a'
+#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so'
+#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.so.*'
+#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.dylib'
+#    FolderApi $REL_BUILD_DIR/$COMPONENT_NAME/$MODULE_NAME '*.a'
 }
