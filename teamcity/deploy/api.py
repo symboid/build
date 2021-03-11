@@ -24,11 +24,11 @@ if toolchain[:4] == "msvc":
     process_arguments = [cmd] + script_arguments + [script]
 # Build host is other (Linux,MacOS): tar+gzip
 else:
-    cmd = "/bin/bash"
-    script = "tar"
+    cmd = "tar"
+    script = ""
     os.chdir(build_dir)
     script_arguments = [ "--create", "--gzip", "--file="+package_dir+"/api.tar.gz" ]
-    process_arguments = [cmd] + [script] + script_arguments
+    process_arguments = [cmd] + script_arguments
 
 print("Script interpreter : " + cmd)
 print("Script             : " + script)
