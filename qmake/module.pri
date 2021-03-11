@@ -17,6 +17,12 @@ ios {
     INSTALLS += target
 }
 
+CONFIG(component_api) {
+    api_headers.files = $$shell_path($$absolute_path($$_PRO_FILE_PWD_)/*.h)
+    api_headers.apth = /include
+    INSTALLS += api_headers
+}
+
 MODULE_H     = $$absolute_path($$_PRO_FILE_PWD_/module.h)
 
 defineReplace(dep_on) {
