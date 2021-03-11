@@ -126,17 +126,8 @@ defineReplace(moduleDirPath) {
     component_name = $$1
     module_name = $$2
 
-    CONFIG(component_api) {
-        android {
-            module_dir_path = $$INSTALL_ROOT/libs/$$ANDROID_TARGET_ARCH
-        }
-        else {
-            module_dir_path = $$INSTALL_ROOT/libs
-        }
-    }
-    else {
-        module_dir_path = $$libPath($$BUILD_HOME/$$component_name/$$module_name)
-    }
+    module_dir_path = $$libPath($$BUILD_HOME/$$component_name/$$module_name)
+
     return ($$module_dir_path)
 }
 
@@ -144,7 +135,12 @@ defineReplace(moduleDep) {
     component_name = $$1
     module_name = $$2
 
-    module_dep = -L$$moduleDirPath($$component_name,$$module_name)
+    CONFIG(component_api) {
+        android: module_dep += -L$$INSTALL_ROOT/libs/$$ANDROID_TARGET_ARCH
+        else:    module_dep += -L$$INSTALL_ROOT/libs
+    }
+
+    module_dep += -L$$moduleDirPath($$component_name,$$module_name)
     module_dep += -l$$moduleName($$component_name,$$module_name)
 
     return ($$module_dep)
