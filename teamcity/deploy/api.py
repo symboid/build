@@ -3,16 +3,16 @@ import sys
 import os
 from subprocess import call
 
-if not len(sys.argv) == 5:
+if not len(sys.argv) == 4:
     print("Number of arguments must 3!")
     print("    arg #1: build dir")
     print("    arg #2: package dir")
     print("    arg #3: toolchain")
     os._exit(1)
 
-build_dir = sys.argv[2]
-package_dir = sys.argv[3]
-toolchain = sys.argv[4]
+build_dir = sys.argv[1]
+package_dir = sys.argv[2]
+toolchain = sys.argv[3]
 
 # Build host is Windows: NSIS packaging
 if toolchain[:4] == "msvc":
