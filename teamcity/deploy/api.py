@@ -27,7 +27,7 @@ else:
     cmd = "tar"
     script = ""
     os.chdir(build_dir)
-    script_arguments = [ "--create", "--gzip", "--file="+package_dir+"/api.tar.gz" ]
+    script_arguments = [ "--create", "--gzip", "--file="+package_dir+"/api.tar.gz", "*" ]
     process_arguments = [cmd] + script_arguments
 
 print("Script interpreter : " + cmd)
