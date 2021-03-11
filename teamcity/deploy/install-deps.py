@@ -20,10 +20,10 @@ else:
 for package in packages:
 	package_path = os.path.normpath(os.path.join(packages_dir, package))
 	if platform_name == "Linux" or platform_name == "Darwin":
-		command_line = ["tar", "-xf", package_path, "-C", package_dir]
+		command_line = ["tar", "-xf", package_path, "-C", packages_dir]
 		file_ext = "tar.gz"
 	elif platform_name == "Windows":
-		command_line = [package_path, "/S", "/D="+package_dir]
+		command_line = [package_path, "/S", "/D="+packages_dir]
 		file_ext = "exe"
 	else:
 		print("Platform '"+platform_name+"' not implemented!")
