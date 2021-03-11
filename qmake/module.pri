@@ -8,7 +8,11 @@ TEMPLATE = lib
 DEFINES += BUILD_$$upper($$replace(TARGET,-,_))
 
 # install phase rules
-macos,ios {
+macos {
+    target.path = /
+    INSTALLS += target
+}
+ios {
     target.path = /
     INSTALLS += target
 }
