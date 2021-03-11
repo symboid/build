@@ -13,7 +13,7 @@ function ComponentApiBegin
     rm -rf $ARCHIVE_TMP_DIR
     mkdir -p $ARCHIVE_TMP_DIR
     
-    FolderApi $REL_BUILD_DIR/build-install *
+    FolderApi $REL_BUILD_DIR/build-install '*'
 }
 
 function ComponentApiEnd
